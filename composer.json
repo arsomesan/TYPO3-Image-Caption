@@ -1,0 +1,55 @@
+{
+    "name": "asom/image-caption",
+    "type": "typo3-cms-extension",
+    "description": "Automatic Image Caption using Max Image Caption Generator",
+    "authors": [
+        {
+            "name": "Adrian Somesan",
+            "role": "Developer"
+        }
+    ],
+    "license": "GPL-2.0-or-later",
+    "require": {
+        "php": "^7.4",
+        "ext-json": "*",
+        "typo3/cms-core": "^11.5",
+        "typo3/cms-filemetadata": "^11.5",
+        "typo3/cms-filelist": "^11.5",
+        "guzzlehttp/guzzle": "^6.3 || ^7.3",
+        "psr/log": "^1.1"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.0",
+        "phpstan/phpstan": "^0.12.92",
+        "typo3/testing-framework": "^6.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "Asom\\ImageCaption\\": "Classes"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Asom\\ImageCaption\\Tests\\": "Tests"
+        }
+    },
+    "replace": {
+        "typo3-ter/image-caption": "self.version"
+    },
+    "config": {
+        "vendor-dir": ".Build/vendor",
+        "bin-dir": ".Build/bin"
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "TYPO3\\TestingFramework\\Composer\\ExtensionTestEnvironment::prepare"
+        ]
+    },
+    "extra": {
+        "typo3/cms": {
+            "cms-package-dir": "{$vendor-dir}/typo3/cms",
+            "web-dir": ".Build/public",
+            "extension-key": "image_caption"
+        }
+    }
+}

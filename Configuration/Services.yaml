@@ -1,0 +1,14 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  Asom\ImageCaption\:
+    resource: '../Classes/*'
+
+
+  Asom\ImageCaption\Command\CaptionAllImagesCommand:
+    tags:
+      - name: 'console.command'
+        command: 'imagecaption:captionall'
